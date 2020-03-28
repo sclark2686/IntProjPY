@@ -1,0 +1,329 @@
+# Integration Project
+# Sam Clark
+
+################# Sam's Physics Quiz ###################
+
+# This project is a physics study helper.
+
+# The questions are from my PHY 2048C class.
+
+# I used concepts we learned in class as well as 
+# http://arve0.github.io/example_lessons/python/lessons/Quiz/Quiz.html
+# and 
+# https://en.wikibooks.org/wiki/Python_Programming/Conditional_Statements
+# for help with formatting the questions neatly
+
+
+
+
+
+
+##################################################################################################
+
+
+
+
+#####################################################################################
+
+def concept():
+    print("Here's your first concept question!")
+    print("A plane traveling horizontally to the right at \n"
+          "100 m/s flies past a helicopter that is going \n"
+          "straight up at 20 m/s. From the helicopter’s \n"
+          "perspective, the plane’s direction and speed are: \n"
+          "                                                   \n"
+          "A.  right and up, more than 100 m/s. \n"
+          "B.  right and up, less than 100 m/s. \n"
+          "C.  right and down, more than 100 m/s. \n"
+          "D.  right and down, less than 100 m/s. \n"
+          "E.  right and down, 100 m/s.")
+
+    answer = input()
+
+    if answer == "C":
+         print("Good Job!")
+    else:
+        print("The correct answer is C")
+
+    concept_close = input("would you like to continue?")
+    if concept_close == "yes":
+        question()
+    else:
+        exit()
+    
+
+#################################################################################
+
+def math1():
+    print("Here's your first math question!")
+    print("                                ")
+    print("There will be __ parts to this question")
+    print("                                    ")
+    print("How fast (in rpm) must a centrifuge rotate if a \n"
+          "particle 9.00 cm from the axis of rotation is to experience an  \n"
+          "acceleration of 115,000 g’s?")
+
+
+
+    print("How many variables are needed to answer the question?")
+
+    answer_math_1 = input()
+    if answer_math_1 == "4":
+        print("correct!  you need radius, centripital acceleration, gravity, \n"
+                "and rotations per minute")
+    else:
+        print("The correct answer is 4,  you need radius, centripital acceleration, gravity, \n"
+                "and rotations per minute")
+
+    print("which formula should you use?")
+    answer_math_2 = input()
+    if answer_math_2 == "Centripetal acceleration":
+          print("correct!")
+    else:
+        print("the correct answer is Centripetal acceleration")
+    
+    print("Set up the problem, how do you begin?")
+    answer_math_3 = input()
+    if answer_math_3 == "rw^2 = 115,000 g's":
+        print("correct!")
+    else:
+        print("to begin solving, take Centripetal acceleration set it equal \n"
+              " to 115,000 g's")
+    print("convert your variables to meters and plug them in. enter your answer")
+    answer_math_4 = input()
+    if answer_math_4 == ".09*w^2=115,000 g's":
+        print("correct!")
+    else:
+        print("incorrect, it should be .09*w^2=115,000 g's")
+
+    print("solve for w and answer the problem")
+
+    answer_math = 3538.68
+
+    answer_math_5 = int(input())
+    if answer_math_5 == answer_math:
+        print("scorrect!")
+    else:
+        print("Incorrect the answer is 3538.68")
+
+    print("dont forget to put your answer in radians!")
+    
+    radians = 60/(2*3.14159)
+    answer_math *= radians
+    print(answer_math)
+
+    math_close = input("would you like to continue?")
+    if math_close == "yes":
+        question()
+    else:
+        exit()
+
+##############################################################################################
+######################## For loop and Relational Operators ####################################
+###############################################################################################
+# Physics formula quiz using formulas from
+# https://www.toppr.com/guides/physics-formulas/basic-physics-formula/
+# will ask a jeopardy style question about a formula
+# will sum the score
+# will give a letter grade based on sum
+# will print a statement if failed
+###############################################################################################
+###############################################################################################
+# Average Speed         S = d/t
+# Acceleration          a = (v-u)/t
+# Density               p = m/V
+# Newton’s Second Law   F = ma 
+# Power                 P = W/t
+# Weight                W = mg
+# Pressure              P = F/A
+# Kinetic Energy        E = (1/2)mv^2
+# Ohms Law              V = IxR       
+# Frequency             f = V/λ
+
+
+
+def formula_quiz():   
+    print("Welcome to the formula quiz!. This section will ask 10 jeopardy style questions \n"
+          "based on 10 commonly used physics formulas. Just type the name of the formula \n"
+          "when you see the equation and move on to the next one. You'll get a score at the end.")
+
+    definitions = ["Average Speed", "Acceleration", "Density", "Newton’s Second Law", "Power", "Weight", "Pressure", "Kinetic Energy", "Ohms Law", "Frequency"]             
+
+    formulas = ['S = d/t', 'a = (v-u)/t', 'p = m/V', 'F = ma', 'P = W/t', 'W = mg', 'P = F/A', 'E = (1/2)mv^2', 'V = IxR', 'f = V/λ']
+
+    quizdecision = input("Before we start would you like to review the definitions first? ")
+    if quizdecision == "yes":
+        print("Here are the Definitions")
+        for x in definitions:
+            print(x)
+    else:
+        print("Times for the quiz! \n"
+              "                      ")
+
+    print("Times for the quiz!       \n"
+          "                         ")
+
+    
+    A = input("what is S = d/t: ")
+    B = input("what is a = (v-u)/t: ")
+    C = input("what is p = m/V: ")
+    D = input("what is F = ma: ")
+    E = input("what is P = W/t: ")
+    F = input("what is W = mg: ")
+    G = input("what is P = F/A: ")
+    H = input("what is E = (1/2)mv^2: ")
+    I = input("what is V = IxR: ")
+    J = input("what is f = V/λ: ")
+
+    score = 0
+    
+    if A == "Average Speed":
+        score = score + 10
+    else:
+        score = score + 0
+    if B == "Acceleration":
+        score = score + 10
+    else:
+        score = score + 0
+    if C == "Density":
+        score = score + 10
+    else:
+        score = score + 0
+    if D == "Newton’s Second Law":
+        score = score + 10
+    else:
+        score = score + 0
+    if E == "Power":
+        score = score + 10
+    else:
+        score = score + 0
+    if F == "Weight":
+        score = score + 10
+    else:
+        score = score + 0
+    if G == "Pressure":
+        score = score + 10
+    else:
+        score = score + 0
+    if H == "Kinetic Energy":
+        score = score + 10
+    else:
+        score = score + 0
+    if I == "Ohms Law":
+        score = score + 10
+    else:
+        score = score + 0
+    if J == "Frequency":
+        score = score + 10
+    else:
+        score = score + 0
+
+    if score <= 50:
+        print("you need to review these terms!")
+    if score == 60:
+        print("Study harder!")
+    if score == 70:
+        print("Could be better!")
+    if score == 80:
+        print("Good job!")
+    if score == 90:
+        print("Great Job!")
+    if score == 100:
+        print("Perfect score!")
+
+    print("you made a" + " " + str(score) + " " + "out of 100")
+
+
+    quiz_close = input("would you like to continue?")
+    if quiz_close == "yes":
+        question()
+    else:
+        exit()
+
+
+        
+    
+
+
+####################################################################################
+######## parameter passing - angular motion with constant acceleration calculator ##
+####################################################################################
+
+
+
+def AMWCA(initial_angular_velocity, centripetal_acceleration, time):
+    final_angular_velocity = initial_angular_velocity + centripetal_acceleration*time
+
+    print("the final angular velocity is", final_angular_velocity)
+
+AMWCA(4,5,6)
+
+
+
+
+######################################################################################
+
+
+print("Welcome to Sam's Physics Study Helper. What's your name?")
+
+name = str(input())
+print("hello," + " " + name + "!" +  " " + "Are you ready to learn Physics?")
+
+
+option_1 = str(input())
+if option_1 == "yes":
+    print("Great!")
+if option_1 == "no":
+    print("come back later when you're ready")
+    exit()
+
+
+##################################################################
+############### Function Definitions #############################
+##################################################################
+
+def question():
+
+    print("Would you like a math question, a concept question, or a formula quiz? \n"
+        "type concept for a concept question \n"
+        "type math for a math question \n"
+        "Type quiz for a a formula quiz")
+    question_main = str(input())
+    if question_main == "concept":
+        concept()
+    if question_main == "math":
+        math1()
+    if question_main == "quiz":
+        formula_quiz()
+
+question()
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+####### standard conditional structures / statements: if, if-else, if-elif, if-elif-else --- DONE ##############################
+####### relational operators ( == != > >= < <= ) --- DONE ###############################################################
+####### standard iterative structures: while, for --- DONE  ##############################################################
+####### function definitions (do not define a function inside another function, def should be at the left margin) --- DONE #####
+####### parameter passing (write a function that accepts parameters) --- DONE ###########################################
+####### A minimum of 100 lines of code - DONE ###########################################################################
+ 
+
+
+
+
+
+
+
+
+
+
