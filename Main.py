@@ -313,6 +313,7 @@ def motion_calculator():
 
         else:
             print("Invalid selection")
+            closing_question()
 
 
 def closing_question():
@@ -322,10 +323,11 @@ def closing_question():
     """
 
     close = input("would you like to continue studying? Type yes to continue"
-                  " Type anything else to close")
+                  " Type anything else to close ")
     if close == "yes":
         navigation_question()
     else:
+        print("Goodbye for now!")
         exit()
 
 
