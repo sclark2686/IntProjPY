@@ -79,6 +79,7 @@ def math_question():
     else:
         print("to begin solving, take Centripetal acceleration set it equal")
         print(" to 115,000 g's")
+
     print("convert your variables to meters and plug them in")
     print(".enter your answer")
 
