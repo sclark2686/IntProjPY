@@ -7,6 +7,7 @@ __author__ = "Samuel Clark"
 
 import math
 
+
 # I used concepts we learned in class as well as
 # http://arve0.github.io/example_lessons/python/lessons/Quiz/Quiz.html
 # https://en.wikibooks.org/wiki/Python_Programming/Conditional_Statements
@@ -142,18 +143,18 @@ def formula_quiz():
     #            'W = mg', 'P = F/A', 'E = (1/2)mv^2',
     #             'V = IxR', 'f = V/λ']
 
-    quiz_decision = input("Before we start would you like to review the \n"
+    quiz_decision = input("Before we start would you like to review the"
                           "definitions first? ")
 
     if quiz_decision == "yes":
         print("Here are the Definitions")
         for x in definitions:
             print(x)
+            print("Time for the quiz!")
     else:
-        print("Times for the quiz! ")
+        print("Time for the quiz! ")
         print("                      ")
 
-    print("Times for the quiz!       ")
     print("                         ")
 
     a = input("what is S = d/t: ")
@@ -212,15 +213,15 @@ def formula_quiz():
 
     if score <= 50:
         print("you need to review these terms!")
-    if score == 60:
+    elif score == 60:
         print("Study harder!")
-    if score == 70:
+    elif score == 70:
         print("Could be better!")
-    if score == 80:
+    elif score == 80:
         print("Good job!")
-    if score == 90:
+    elif score == 90:
         print("Great Job!")
-    if score == 100:
+    else:
         print("Perfect score!")
 
     print("you made a" + " " + str(score) + " " + "out of 100")
@@ -231,9 +232,13 @@ def formula_quiz():
 def angular_momentum_calculator(iav, ca, t):
     """
     This function is a calculator for angular momentum with constant
-    acceleration
+    acceleration.
     """
-    final_angular_velocity = iav + ca*t
+    # iav is the initial angular velocity
+    # ca is the centripetal acceleration
+    # t is the time
+
+    final_angular_velocity = iav + ca * t
     print("the final angular velocity is", final_angular_velocity)
 
 
@@ -242,7 +247,7 @@ angular_momentum_calculator(4, 5, 6)
 
 def motion_calculator():
     """
-    This is a motion calculator. Uses the equation for linear motion with
+    This is a motion calculator. It uses the equation for linear motion with
     constant acceleration to solve for a variable.
     """
     print("This is a calculator for motion with constant acceleration")
@@ -251,62 +256,63 @@ def motion_calculator():
 
     motion_calc = True
     while motion_calc:
-        solve_for = input("Which variable would you like to solve for?: ")
+
+        solve_for = input("Enter the variable you would like to solve for "
+                          " or q to quit: ")
         if solve_for == "xf":
             xi = int(input("what is your initial position?: "))
             v = int(input("What is your velocity?: "))
             t = int(input("what is your time?: "))
             a = int(input("what is your acceleration?: "))
 
-            xf = (xi + v*t + .5 * a * (t ^ 2))
+            xf = (xi + v * t + .5 * a * (t ** 2))
             print("the final position is ", xf)
 
-        if solve_for == "xi":
+        elif solve_for == "xi":
             xf = int(input("What is your final position?: "))
             v = int(input("What is your velocity?: "))
             t = int(input("what is your time?: "))
             a = int(input("what is your acceleration?: "))
 
-            xi = (xf - v*t + .5 * a * (t ^ 2))
+            xi = (xf - v * t + .5 * a * (t ** 2))
             print("the initial position is ", xi)
 
-        if solve_for == "v":
+        elif solve_for == "v":
             xf = int(input("What is your final position?: "))
             xi = int(input("what is your initial position?: "))
             t = int(input("what is your time?: "))
             a = int(input("what is your acceleration?: "))
 
-            v = (xf - xi - ((a*(t ^ 2))*.5))/t
+            v = (xf - xi - ((a * (t ** 2)) * .5)) / t
             print("the velocity is ", v)
 
-        if solve_for == "t":
+        elif solve_for == "t":
             xf = int(input("What is your final position?: "))
             xi = int(input("what is your initial position?: "))
             v = int(input("What is your velocity?: "))
             a = int(input("what is your acceleration?: "))
 
-            p = (-v + math.sqrt((v ^ 2) - 4 * .5 * a * (xf - xi))/a)
-            q = (-v - math.sqrt((v ^ 2) - 4 * .5 * a * (xf - xi))/a)
+            p = (-v + math.sqrt((v ** 2) - 4 * .5 * a * (xf - xi)) / a)
+            q = (-v - math.sqrt((v ** 2) - 4 * .5 * a * (xf - xi)) / a)
 
             print("the time is ", max(p, q))
 
-        if solve_for == "a":
+        elif solve_for == "a":
             xf = int(input("What is your final position?: "))
             xi = int(input("what is your initial position?: "))
             v = int(input("What is your velocity?: "))
             t = int(input("what is your time?: "))
 
-            a = (2*(xf - xi - v*t)/(t ^ 2))
+            a = (2 * (xf - xi - v * t) / (t ** 2))
             print("the acceleration is ", a)
 
+        elif solve_for == "q":
+            motion_calc = False
+            print("Come back when you want to solve for a variable")
+            closing_question()
+
         else:
-            calc_close = input("Invalid selection Would you like to continue "
-                               "using the motion calculator?")
-            if calc_close == "no":
-                motion_calc = False
-                closing_question()
-            else:
-                print("Great! ")
+            print("Invalid selection")
 
 
 def closing_question():
@@ -315,7 +321,8 @@ def closing_question():
     to ask if the user wants to continue or not
     """
 
-    close = input("would you like to continue?")
+    close = input("would you like to continue studying? Type yes to continue"
+                  " Type anything else to close")
     if close == "yes":
         navigation_question()
     else:
@@ -349,12 +356,15 @@ def navigation_question():
     question_main = str(input())
     if question_main == "concept":
         concept_question()
-    if question_main == "math":
+    elif question_main == "math":
         math_question()
-    if question_main == "quiz":
+    elif question_main == "quiz":
         formula_quiz()
-    if question_main == "motion calculator":
+    elif question_main == "motion calculator":
         motion_calculator()
+    else:
+        print("Invalid Selection.")
+        closing_question()
 
 
 navigation_question()
